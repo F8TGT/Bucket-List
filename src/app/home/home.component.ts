@@ -11,7 +11,7 @@ import {trigger, style, transition, animate, keyframes, query, stagger} from '@a
     CommonModule
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrls: ['./home.component.css'],
   animations: [
     trigger('goals', [
         transition('* => *', [

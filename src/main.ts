@@ -1,16 +1,25 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
-import { provideAnimations } from '@angular/platform-browser/animations';
 import { importProvidersFrom } from '@angular/core';
 import { HomeComponent } from './app/home/home.component';
+import {AboutComponent} from "./app/about/about.component";
+import {provideRouter, Routes} from "@angular/router";
 
-// bootstrapApplication(AppComponent, appConfig)
-//   .catch((err) => console.error(err));
+const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'about/:id',
+    component: AboutComponent
+  }
+];
 
-bootstrapApplication(HomeComponent, {
+bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(BrowserAnimationsModule),
+    provideRouter(routes)
   ],
 }).catch(err => console.error(err));
